@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH=/root/erlang/lib/R14B04/bin/:${PATH}
+
+echo "I smack you janky!"
+
+make all
+
+#EOF
