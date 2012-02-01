@@ -1,0 +1,12 @@
+{application, smackme,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { smackme_app, []}},
+  {env, []}
+ ]}.
