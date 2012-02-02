@@ -27,7 +27,7 @@ start_link() ->
 
     ok = filelib:ensure_dir("./log/"),
 
-    HttpIfConfig = get_param(http_if_cfg, [{http, {127,0,0,1}, 50020}]),
+    HttpIfConfig = get_param(http_if_cfg, [{http, {0,0,0,0}, 18080}]),
 
     ServerId = "smackme",
 
