@@ -1,8 +1,8 @@
 -module(smackme_yaws_sup).
 -behaviour(supervisor).
 
--include("../deps/yaws/include/yaws_api.hrl").
--include("../deps/yaws/include/yaws.hrl").
+-include("../../../deps/yaws/include/yaws_api.hrl").
+-include("../../../deps/yaws/include/yaws.hrl").
 
 -compile(export_all).
 

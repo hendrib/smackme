@@ -1,6 +1,6 @@
 -module(smackme_yaws_fe_handler).
 
--include("../deps/yaws/include/yaws_api.hrl").
+-include("../../../deps/yaws/include/yaws_api.hrl").
 
 -compile(export_all).
 

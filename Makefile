@@ -1,16 +1,20 @@
 
 .PHONY: all deps clean test
 
-./ebin/smackme.app: src/*.erl test/*.erl
+./apps/smackme/ebin/smackme.app: apps/smackme/src/*.erl apps/smackme/test/*.erl
 	./rebar compile
 
 deps:
 	./rebar get-deps
 
-app: deps ./ebin/smackme.app
+app: deps ./apps/smackme/ebin/smackme.app
+
+release: app
+	./rebar --force generate
 
 clean:
 	rm -fr .eunit
+	rm -fr ./deps/yaws/fake_lib_dir/
 	rm -fr erl_crash.dump
 	./rebar clean
 
