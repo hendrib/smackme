@@ -1,7 +1,7 @@
 
 .PHONY: all deps clean test
 
-./ebin/smackme.app: src/*.erl src/*.erl test/*.erl
+./ebin/smackme.app: src/*.erl test/*.erl
 	./rebar compile
 
 deps:
@@ -14,7 +14,7 @@ clean:
 	rm -fr erl_crash.dump
 	./rebar clean
 
-test: app
+test: app 
 	mkdir -p .eunit
 	./rebar skip_deps=true eunit
 

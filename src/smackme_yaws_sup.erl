@@ -12,9 +12,22 @@
         init/1
         ]).
 
+
+get_param(Param, Default) ->
+
+    case application:get_env(smackme, Param) of
+    undefined ->
+        Default;
+
+    {ok, Value} ->
+        Value
+    end.
+
 start_link() -> 
 
-    HttpIfConfig = pt_util_app:get_app_param(smackme, http_if_cfg, [{http, {127,0,0,1}, 50020}]),
+    ok = filelib:ensure_dir("./log/"),
+
+    HttpIfConfig = get_param(http_if_cfg, [{http, {127,0,0,1}, 50020}]),
 
     ServerId = "smackme",
 
