@@ -1,11 +1,11 @@
 -module(smackme_yaws_sup).
 -behaviour(supervisor).
 
+-include("../deps/yaws/include/yaws_api.hrl").
+-include("../deps/yaws/include/yaws.hrl").
+
 -compile(export_all).
 
-
--include_lib("yaws/include/yaws_api.hrl").
--include_lib("yaws/include/yaws.hrl").
 
 -export([
         start_link/0,
