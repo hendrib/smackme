@@ -87,7 +87,7 @@ build_sconf_list([{https, If, Port, KeyFile, CertFile} | T]) ->
             {ssl, [{keyfile, KeyFile}, {certfile, CertFile}, {verify, 0}, {depth, 0}]},
 
             {appmods,   [
-                        {"/",  smackme_yaws_fe_handler}
+                        {"/smackme",  smackme_yaws_fe_handler}
                         ]}
             ],
 
@@ -103,7 +103,7 @@ build_sconf_list([{http, If, Port} | T]) ->
             {allowed_scripts, []},
 
             {appmods,   [
-                        {"/",  smackme_yaws_fe_handler}
+                        {"/smackme",  smackme_yaws_fe_handler}
                         ]}
             ],
 

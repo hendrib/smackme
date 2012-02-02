@@ -22,5 +22,8 @@ test: app
 	mkdir -p .eunit
 	./rebar skip_deps=true eunit
 
+run: release
+	./rel/smackme/bin/smackme console
+
 all: clean app test
 	@echo "Done."

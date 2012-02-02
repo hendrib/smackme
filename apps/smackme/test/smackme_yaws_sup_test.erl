@@ -28,7 +28,7 @@ build_sconf_list_test()->
                     {listen, {0,0,0,0}}, 
                     {allowed_scripts, []}, 
                     {ssl, [{keyfile, "KeyFile"}, {certfile, "CertFile"}, {verify, 0}, {depth, 0}]}, 
-                    {appmods, [{"/",  smackme_yaws_fe_handler}]} 
+                    {appmods, [{"/smackme",  smackme_yaws_fe_handler}]} 
                  ]], 
 
                  smackme_yaws_sup:build_sconf_list([{https, {0,0,0,0}, 443, "KeyFile", "CertFile"}])),
@@ -38,7 +38,7 @@ build_sconf_list_test()->
                     {port, 8080}, 
                     {listen, {0,0,0,0}}, 
                     {allowed_scripts, []}, 
-                    {appmods, [{"/",  smackme_yaws_fe_handler}]} 
+                    {appmods, [{"/smackme",  smackme_yaws_fe_handler}]} 
                  ]], 
 
                  smackme_yaws_sup:build_sconf_list([{http, {0,0,0,0}, 8080}])),
@@ -50,13 +50,13 @@ build_sconf_list_test()->
                     {listen, {0,0,0,0}}, 
                     {allowed_scripts, []}, 
                     {ssl, [{keyfile, "KeyFile"}, {certfile, "CertFile"}, {verify, 0}, {depth, 0}]}, 
-                    {appmods, [{"/",  smackme_yaws_fe_handler}]} 
+                    {appmods, [{"/smackme",  smackme_yaws_fe_handler}]} 
                  ],
                  [
                     {port, 8080}, 
                     {listen, {0,0,0,0}}, 
                     {allowed_scripts, []}, 
-                    {appmods, [{"/",  smackme_yaws_fe_handler}]} 
+                    {appmods, [{"/smackme",  smackme_yaws_fe_handler}]} 
                  ]],
 
 
