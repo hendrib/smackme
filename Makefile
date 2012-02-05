@@ -29,7 +29,7 @@ test: app
 run: release
 	./rel/smackme/bin/smackme console
 
-deb: release
+deb: release ./package/deb/smackme.template ./package/deb/godeb.sh
 	cd ./package/deb; ./godeb.sh
 
 all: clean app test
