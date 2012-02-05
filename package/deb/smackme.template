@@ -1,0 +1,51 @@
+### Commented entries have reasonable defaults.
+### Uncomment to edit them.
+Section: misc
+Priority: optional
+Homepage: www.miranetworks.net
+Standards-Version: 3.6.2
+
+Package: smackme
+Version: %VSN%
+Maintainer: Ruan Jonker <ruanj@miranetworks.net>
+# Pre-Depends: <comma-separated list of packages>
+Depends: libssl0.9.8,libdb4.6
+# Recommends: <comma-separated list of packages>
+# Suggests: <comma-separated list of packages>
+# Provides: <comma-separated list of packages>
+# Replaces: <comma-separated list of packages>
+Architecture: i386
+# Copyright: <copyright file; defaults to GPL2>
+# Changelog: <changelog file; defaults to a generic changelog>
+# Readme: <README.Debian file; defaults to a generic one>
+# Extra-Files: <comma-separated list of additional files for the doc directory>
+Files: ../../rel/smackme.tar.gz /var/lib/smackme/%VSN%/lib/smackme.tar.gz
+#  <more pairs, if there's more than one file to include. Notice the starting space>
+Description: A toy app to evaluate erlang building via rebar
+ long description and info
+ .
+ second paragraph
+
+File: preinst
+ #!/bin/bash
+ echo "preinst"
+
+ mkdir -p /var/log/smackme/
+ mkdir -p /var/lib/smackme/data/
+
+ mkdir -p /var/lib/smackme/%VSN%/bin/
+ mkdir -p /var/lib/smackme/%VSN%/data/
+
+ #DEBHELPER#
+ exit 0
+
+File: postinst
+ #!/bin/bash
+ echo "postinst"
+
+ tar -C /var/lib/smackme/%VSN%/bin/ -xzf /var/lib/smackme/%VSN%/lib/smackme.tar.gz
+
+ #DEBHELPER#
+ exit 0
+
+
