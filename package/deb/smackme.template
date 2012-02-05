@@ -8,8 +8,8 @@ Standards-Version: 3.6.2
 Package: smackme
 Version: %VSN%
 Maintainer: Ruan Jonker <ruanj@miranetworks.net>
-# Pre-Depends: <comma-separated list of packages>
-Depends: libssl0.9.8,libdb4.6
+Pre-Depends: libssl0.9.8,libdb4.6
+# Depends: 
 # Recommends: <comma-separated list of packages>
 # Suggests: <comma-separated list of packages>
 # Provides: <comma-separated list of packages>
