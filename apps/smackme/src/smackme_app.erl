@@ -10,6 +10,9 @@
 %% ===================================================================
 
 start(_StartType, _StartArgs) ->
+
+	application:start(crypto),
+
     smackme_sup:start_link().
 
 stop(_State) ->

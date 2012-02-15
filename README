@@ -1,1 +1,4 @@
 A smacking web service!!
+
+export PATH=/home/erlang/lib/R14B04/bin/:/sbin/:$PATH
+

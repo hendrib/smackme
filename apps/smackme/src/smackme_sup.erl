@@ -24,9 +24,26 @@ start_link() ->
 %% ===================================================================
 
 init([]) ->
-    {ok, { {one_for_one, 5, 10}, [
-                                    ?CHILD(smackme_server, smackme_smack_server, worker),
-                                    ?CHILD(yaws_sup, smackme_yaws_sup, supervisor)
 
-                                 ]} }.
+	RestartSpec = {rest_for_one, 1, 10},
 
+	SmackServer = {smackme_server,
+                      {smackme_smack_server, start_link, []},
+                        permanent, 5000, worker, [smackme_smack_server]},
+
+	Web = web_specs(smackme_web, 18080),
+    MochiWebServer = Web,
+
+    {ok, { RestartSpec, [
+                         SmackServer,
+                         MochiWebServer
+
+                        ]} }.
+
+web_specs(Mod, Port) ->
+    WebConfig = [{ip, {0,0,0,0}},
+                 {port, Port},
+                 {docroot, smackme_deps:local_path(["priv", "www"])}],
+    {Mod,
+     {Mod, start, [WebConfig]},
+     permanent, 5000, worker, dynamic}.
