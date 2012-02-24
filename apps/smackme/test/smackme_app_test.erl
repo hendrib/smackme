@@ -10,8 +10,6 @@ start_test() ->
 
     ?assertNot(undefined == erlang:whereis(smackme_sup)),
     
-    ?assertNot(undefined == erlang:whereis(smackme_yaws_sup)),
-
     ?assertNot(undefined == erlang:whereis(smackme_smack_server)),
 
     ?assertMatch([{smackme, _, _}], [A || {Id, _, _} = A <- application:which_applications(), Id == smackme]).

@@ -32,18 +32,16 @@ init([]) ->
                         permanent, 5000, worker, [smackme_smack_server]},
 
 	Web = web_specs(smackme_web, 18080),
-    MochiWebServer = Web,
 
     {ok, { RestartSpec, [
                          SmackServer,
-                         MochiWebServer
+                         Web
 
                         ]} }.
 
 web_specs(Mod, Port) ->
     WebConfig = [{ip, {0,0,0,0}},
-                 {port, Port},
-                 {docroot, smackme_deps:local_path(["priv", "www"])}],
+                 {port, Port}],
     {Mod,
      {Mod, start, [WebConfig]},
      permanent, 5000, worker, dynamic}.
